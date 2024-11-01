@@ -195,7 +195,82 @@ def obtener_nombre_distrito(latitude, longitude):
     return distrito
 
 
-def scraping_alquileres_redpiso(paginas):
+import requests
+
+def consulta_idealista(locationId, locationName, paginas=1):
+    """
+    Realiza consultas a la API de Idealista para obtener anuncios de alquiler de viviendas en función del destino y número de páginas especificadas.
+
+    Parámetros:
+    locationId (str): El ID de la ubicación.
+    locationName (str): El nombre de la ubicación.
+    paginas (int): Número de páginas de resultados a consultar (por defecto es 1).
+
+    Devuelve:
+    list: Una lista de diccionarios con los resultados de las búsquedas de las páginas especificadas.
+    """
+
+    url = "https://idealista7.p.rapidapi.com/listhomes"
+    headers = {
+        "x-rapidapi-key": "e9d53ce8f2msh50c48f79aa0b1b1p1674b7jsn7a3fd4b9a409",
+        "x-rapidapi-host": "idealista7.p.rapidapi.com"
+    }
+
+    lista_resultados = []
+
+    for pagina in tqdm(range(1, paginas + 1)):
+        querystring = {
+            "order": "relevance",
+            "operation": "rent",
+            "locationId": locationId,
+            "locationName": locationName,
+            "numPage": str(pagina),
+            "maxItems": "40",
+            "location": "es",
+            "locale": "es"
+        }
+        
+        response = requests.get(url, headers=headers, params=querystring)
+        res = response.json()
+        lista_resultados.append(res)
+        sleep(5)
+    
+    return lista_resultados
+
+
+def dataframe_idealista(lista_resultados):
+    """
+    Convierte los resultados de Idealista en un DataFrame de pandas con varias columnas de interés.
+
+    Parámetros:
+    lista_resultados (list): Una lista de diccionarios que contienen los resultados de las búsquedas de Idealista.
+
+    Devuelve:
+    DataFrame: Un DataFrame de pandas con columnas que incluyen 'Latitud', 'Longitud', 'Precio', 'Tipo', 'Planta', 'Tamaño', 'Habitaciones', 'Baños', 'Dirección' y 'Descripción'.
+    """
+    anuncios = []
+
+    for elemento in lista_resultados:
+        for anuncio in elemento.get("elementList", []):
+            anuncios.append({
+                "Latitud": anuncio.get("latitude"),
+                "Longitud": anuncio.get("longitude"),
+                "Precio": anuncio.get("price"),
+                "Tipo": anuncio.get("propertyType"),
+                "Planta": anuncio.get("floor"),
+                "Tamaño": anuncio.get("size"),
+                "Habitaciones": anuncio.get("rooms"),
+                "Baños": anuncio.get("bathrooms"),
+                "Dirección": anuncio.get("address"),
+                "Descripción": anuncio.get("description")
+            })
+
+    df_idealista = pd.DataFrame(anuncios)
+
+    return df_idealista
+
+
+def scraping_alquileres_redpiso(paginas=1):
     """
     Realiza el scraping de la página web de Redpiso para obtener anuncios de alquiler de viviendas en Madrid.
     
@@ -207,7 +282,7 @@ def scraping_alquileres_redpiso(paginas):
     5. Analiza el código fuente con BeautifulSoup y almacena los resultados.
 
     Parámetros:
-    paginas (int): Número de páginas de resultados a consultar.
+    paginas (int): Número de páginas de resultados a consultar (por defecto es 1).
 
     Devuelve:
     list: Una lista con los resultados del scraping de las páginas especificadas.
@@ -299,9 +374,9 @@ def dataframe_redpiso(lista_sopas):
             precio = piso.find('h3').text.strip()
             precios.append(precio)
             
-            # Descripción
+            # Descripción    
+            descripcion = piso.find('h5').text.strip()
             if descripcion:
-                descripcion = piso.find('h5').text.strip()
                 descripciones.append(descripcion)
             else:
                 descripcion = "Sin descripción"
