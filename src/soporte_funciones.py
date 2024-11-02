@@ -33,6 +33,7 @@ import time
 # Librería para trabajar con bases de datos SQL
 import psycopg2
 from psycopg2 import OperationalError, errorcodes, errors
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 # Librería para manejar archivos .env, para cargar tokens y claves
 import os
@@ -73,7 +74,7 @@ def consulta_airbnbs(destino, checkin, checkout, paginas):
 
     url = "https://airbnb13.p.rapidapi.com/search-location"
     headers = {
-        "x-rapidapi-key": "e9d53ce8f2msh50c48f79aa0b1b1p1674b7jsn7a3fd4b9a409",
+        "x-rapidapi-key": rapiapi_key,
         "x-rapidapi-host": "airbnb13.p.rapidapi.com"
     }
     
@@ -591,11 +592,14 @@ def dbeaver_crear_db(database_name):
 
     try:
         conexion = psycopg2.connect(
+            dbname="postgres",
             user=dbeaver_user,
             password=dbeaver_pw,
             host="localhost",
             port="5432"
         )
+
+        conexion.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 
         # Crear un cursor con la nueva conexión
         cursor = conexion.cursor()
