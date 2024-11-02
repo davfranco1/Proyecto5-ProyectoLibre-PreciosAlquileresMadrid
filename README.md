@@ -46,37 +46,37 @@ El proyecto está construido de la siguiente manera:
 ## Lenguaje, librerías y temporalidad
 - El proyecto fué elaborado con Python 3.9 y múltiples librerías de soporte:
 
-    - *Librerías para el tratamiento de datos*
+*Librerías para el tratamiento de datos*
 - [Pandas](https://pandas.pydata.org/docs/)
 - [Numpy](https://numpy.org/doc/)
 
-    - *Librerías para captura de datos*
+*Librerías para captura de datos*
 - [Selenium](https://selenium-python.readthedocs.io)
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [Requests](https://pypi.org/project/requests/)
 
-    - *Librerías para gestión de tiempos*
+*Librerías para gestión de tiempos*
 - [Time](https://docs.python.org/3/library/time.html)
 - [tqdm](https://numpy.org/doc/)
 
-    - *Librerías para graficar*
+*Librerías para graficar*
 - [Plotly](https://plotly.com/python/)
 - [Seaborn](https://seaborn.pydata.org)
 - [Matplotlib](https://matplotlib.org/stable/index.html)
 
-    - *Librería para gestionar tokens y contraseñas*
+*Librería para gestionar tokens y contraseñas*
 - [DotEnv](https://pypi.org/project/python-dotenv/)
 
-    - *Librería para controlar parámetros del sistema*
+*Librería para controlar parámetros del sistema*
 - [Sys](https://docs.python.org/3/library/sys.html)
 
-    - *Librería para controlar ficheros*
+*Librería para controlar ficheros*
 - [os](https://docs.python.org/3/library/os.html)
 
-    - *Librería para conexión a bases de datos SQL*
+*Librería para conexión a bases de datos SQL*
 - [psycopg2](https://www.psycopg.org/docs/)
 
-    - *Librería para la gestión de avisos*
+*Librería para la gestión de avisos*
 - [warnings](https://docs.python.org/3/library/warnings.html)
 
 
@@ -120,7 +120,7 @@ El proyecto está construido de la siguiente manera:
 
 ## Estructura de la base de datos
 
-<img src="images/Diagrama_ER.png" width="400">
+<img src="images/DiagramaER.png" width="400">
 
 - Este gráfico muestra el diseño de una base de datos relacional en forma de estrella con seis tablas: en el centro, "distritos", rodeada por:
    - Tabla de alojamientos turísticos: "airbnb".
