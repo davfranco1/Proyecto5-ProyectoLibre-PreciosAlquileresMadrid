@@ -444,6 +444,7 @@ def scraping_ayuntamiento():
 
     # Aceptamos cookies
     driver.find_element("css selector", "#iam-cookie-control-modal-action-primary").click()
+    print("Cookies aceptadas")
     sleep(2)
 
     # Scroll a opciones
@@ -453,18 +454,22 @@ def scraping_ayuntamiento():
 
     # Click todos distritos
     driver.find_element("css selector", "#check186").click()
+    print("Click en todos los distritos")
     sleep(2)
 
     # Click en totales barrios
     driver.find_element("css selector", "#checkTotales650").click()
+    print("Click en totales barrios")
     sleep(2)
 
-    # Click en todos periodos e invertir orden
+    # Click en todos periodos
     driver.find_element("css selector", "#check435").click()
+    print("Click en todos los períodos")
     sleep(2)
 
     # Click en tipo medida todo
     driver.find_element("css selector", "#check360").click()
+    print("Click en todas las medidas")
     sleep(2)
 
     # Scroll a botones
@@ -474,11 +479,88 @@ def scraping_ayuntamiento():
 
     # Click en nacionalidad todo
     driver.find_element("css selector", "#check382").click()
+    print("Click en todas las nacionalidades")
     sleep(2)
 
     # Click en generar CSV
     driver.find_element("css selector", "#botonCsv").click()
+    print("Click en generar CSV")
+    sleep(5)
+
+    driver.quit()
+
+
+def scraping_ine():
+    """
+    Configura el navegador Chrome, abre la página del INE y realiza una serie de clics y desplazamientos
+    para descargar datos en formato CSV.
+
+    Parámetros:
+    No hay parámetros de entrada.
+
+    Devuelve:
+    No hay valores de retorno. La función descarga un archivo CSV en la ruta especificada.
+    """
+    chrome_options = webdriver.ChromeOptions()
+
+    prefs = {
+        "download.default_directory": "/Users/davidfranco/Library/CloudStorage/OneDrive-Personal/Hackio/Jupyter/Proyecto5-ProyectoLibre-PreciosAlquileresMadrid/datos/origen", #ruta de descarga
+        "download.prompt_for_download": False,   # desactiva el diálogo que Chrome normalmente muestra para pedir confirmación del usuario antes de descargar un archivo
+        "directory_upgrade": True,    # hace que Chrome actualice el directorio de descarga predeterminado a la nueva ubicación especificada por download.default_directory si esta ha cambiado.
+    }
+
+    url = "https://www.ine.es/jaxiT3/Tabla.htm?t=31097&L=0"
+
+    # Pasamos diccionario de preferencias a Chrome
+    chrome_options.add_experimental_option("prefs", prefs)
+    driver = webdriver.Chrome(options=chrome_options)
+
+    driver.get(url)
+    driver.maximize_window()
     sleep(2)
+
+    # Aceptamos cookies
+    driver.find_element("css selector", "#aceptarCookie").click()
+    print("Cookies aceptadas")
+    sleep(2)
+
+    # Clicks quitar municipios, distritos, secciones
+    driver.find_element("css selector", "#selCri_0").click()
+    sleep(1)
+    driver.find_element("css selector", "#selCri_1").click()
+    sleep(1)
+    driver.find_element("css selector", "#selCri_2").click()
+    sleep(1)
+    print("Quitadas opciones por defecto")
+
+    # Click todos años
+    driver.find_element("css selector", "#caja_periodo > div > fieldset > div.capaSelecTodosNinguno > button.opcionesvarDer").click()
+    print("Click en todos los años")
+    sleep(1)
+
+    # Click abrir Madrid
+    driver.find_element("css selector", "#nt_1374330").click()
+    print("Desplegable Madrid abierto")
+
+    # Click en distritos
+    driver.find_element("css selector", "#selchld_1374330").click()
+    print("Click en distritos")
+    sleep(1)
+
+    # Click en botón descarga 
+    driver.find_element("css selector", "#btnDescarga > i").click()
+    print("Click en descarga")
+    sleep(2)
+
+    # Entrar en iframe
+    iframe = WebDriverWait(driver, 10).until(EC.presence_of_element_located(("xpath", '//*[@id="thickBoxINEfrm"]')))
+    driver.switch_to.frame(iframe)
+    sleep(2)
+
+    # Click en CSV
+    driver.find_element("css selector", "body > ul > li:nth-child(4) > a").click()
+    print("Click en CSV")
+    sleep(5)
 
     driver.quit()
 
