@@ -1,9 +1,9 @@
-# Proyecto 4: Análisis Facua
+# Proyecto 4: Análisis de los precios del alquiler en los distritos de Madrid, demografía y la cantidad de alojamientos turísticos
 
 ![imagen](images/header.jpg)
 
 
-## Proyecto Libre: **Análisis de los precios del alquiler en los distritos de Madrid y la cantidad de alojamientos turísticos**
+## Planteamiento del problema: **El mercado de la vivienda de alquiler en la capital de España**
 
 - El mercado de alquiler de viviendas en Madrid ha experimentado un crecimiento sostenido en la última década, impulsado tanto por la demanda de los residentes locales como por el interés de extranjeros en vivir en la capital española. Esta demanda ha provocado un aumento considerable en los precios de alquiler, dificultando el acceso a la vivienda, especialmente para los jóvenes y aquellos con ingresos moderados. Además, la escasez de oferta y el dinamismo de Madrid como centro económico y cultural han contribuido a que el mercado de alquiler se mantenga altamente competitivo y sometido a la presión de varios factores económicos y sociales.
 
