@@ -3,7 +3,7 @@
 ![imagen](images/header.jpg)
 
 
-## Planteamiento del problema: **El mercado de la vivienda de alquiler en la capital de España**
+## Planteamiento del problema: **la vivienda de alquiler en la capital de España**
 
 - El mercado de alquiler de viviendas en Madrid ha experimentado un crecimiento sostenido en la última década, impulsado tanto por la demanda de los residentes locales como por el interés de extranjeros en vivir en la capital española. Esta demanda ha provocado un aumento considerable en los precios de alquiler, dificultando el acceso a la vivienda, especialmente para los jóvenes y aquellos con ingresos moderados. Además, la escasez de oferta y el dinamismo de Madrid como centro económico y cultural han contribuido a que el mercado de alquiler se mantenga altamente competitivo y sometido a la presión de varios factores económicos y sociales.
 
@@ -14,7 +14,9 @@
 
 ## Objetivos del Proyecto
 
-1. **Integración de Múltiples Fuentes**: Combinar APIs y datos de scraping para obtener una vista enriquecida de del tema elegido.
+- Este proyecto forma parte de un bootcamp de formación en Data Science e Inteligencia Artificial, y tiene los siguientes objetivos:
+
+1. **Integración de Datos de Múltiples Fuentes**: Combinar APIs y datos de scraping para obtener una vista enriquecida de del tema elegido.
 
 2. **Base de Datos**: Diseñar y estructurar los datos en una base de datos adecuada a los requisitos del análisis.
 
@@ -25,7 +27,7 @@
 
 El proyecto está construido de la siguiente manera:
 
-- **datos/**: Carpeta que contiene archivos `.csv`, `.json` o `.pkl` generados durante la captura y tratamiento de los datos.
+- **datos/**: Carpeta que contiene archivos `.csv`, `.json` o `.pkl` generados durante la captura y tratamiento de los datos. Se subdivide en `origen` y `finales`, para diferenciar entre auqellos datos capturados directamente de la fuente y los que ya han sido transformados.
 
 - **images/**: Carpeta que contiene archivos de imagen generados durante la ejecución del código o de fuentes externas.
 
