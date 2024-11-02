@@ -73,7 +73,7 @@ def consulta_airbnbs(destino, checkin, checkout, paginas):
 
     url = "https://airbnb13.p.rapidapi.com/search-location"
     headers = {
-        "x-rapidapi-key": rapiapi_key,
+        "x-rapidapi-key": "e9d53ce8f2msh50c48f79aa0b1b1p1674b7jsn7a3fd4b9a409",
         "x-rapidapi-host": "airbnb13.p.rapidapi.com"
     }
     
@@ -125,7 +125,7 @@ def dataframe_airbnb(resultados_airbnb):
             lista_airbnbs.append({
                 "Latitud": alojamiento["lat"],
                 "Longitud": alojamiento["lng"],
-                "Descripción": alojamiento["name"],
+                "Descripcion": alojamiento["name"],
                 "Precio Total": alojamiento["price"]["total"]
             })
     
@@ -258,11 +258,11 @@ def dataframe_idealista(lista_resultados):
                 "Precio": anuncio.get("price"),
                 "Tipo": anuncio.get("propertyType"),
                 "Planta": anuncio.get("floor"),
-                "Tamaño": anuncio.get("size"),
+                "Tamanio": anuncio.get("size"),
                 "Habitaciones": anuncio.get("rooms"),
-                "Baños": anuncio.get("bathrooms"),
-                "Dirección": anuncio.get("address"),
-                "Descripción": anuncio.get("description")
+                "Banios": anuncio.get("bathrooms"),
+                "Direccion": anuncio.get("address"),
+                "Descripcion": anuncio.get("description")
             })
 
     df_idealista = pd.DataFrame(anuncios)
@@ -387,7 +387,7 @@ def dataframe_redpiso(lista_sopas):
     
     df_redpiso = pd.DataFrame({
         #'Oficina': oficinas,
-        'Descripción': descripciones,
+        'Descripcion': descripciones,
         'Precio': precios
     })
     
