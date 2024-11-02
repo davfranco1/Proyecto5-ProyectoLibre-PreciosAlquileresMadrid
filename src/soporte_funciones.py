@@ -412,6 +412,77 @@ def extraer_distrito(texto):
         return "Distrito no identificado"
 
 
+def scraping_ayuntamiento():
+    """
+    Configura el navegador Chrome, abre la página especificada y realiza una serie de clics y desplazamientos
+    para descargar datos en formato CSV.
+
+    Parámetros:
+    No hay parámetros de entrada.
+
+    Devuelve:
+    No hay valores de retorno. La función descarga un archivo CSV en la ruta especificada.
+    """
+
+    chrome_options = webdriver.ChromeOptions()
+
+    prefs = {
+        "download.default_directory": "/Users/davidfranco/Library/CloudStorage/OneDrive-Personal/Hackio/Jupyter/Proyecto5-ProyectoLibre-PreciosAlquileresMadrid/datos/origen",  # ruta de descarga
+        "download.prompt_for_download": False,   # desactiva el diálogo que Chrome normalmente muestra para pedir confirmación del usuario antes de descargar un archivo
+        "directory_upgrade": True,    # hace que Chrome actualice el directorio de descarga predeterminado a la nueva ubicación especificada por download.default_directory si esta ha cambiado.
+    }
+
+    url = "https://servpub.madrid.es/CSEBD_WBINTER/seleccionSerie.html?numSerie=0307010000022"
+
+    # Pasamos diccionario de preferencias a Chrome
+    chrome_options.add_experimental_option("prefs", prefs)
+    driver = webdriver.Chrome(options=chrome_options)
+
+    driver.get(url)
+    driver.maximize_window()
+    sleep(2)
+
+    # Aceptamos cookies
+    driver.find_element("css selector", "#iam-cookie-control-modal-action-primary").click()
+    sleep(2)
+
+    # Scroll a opciones
+    element1 = driver.find_element("css selector", "#filtroSeries > div > div.bg-fluid0 > div > div.container > div > div > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(1)")
+    driver.execute_script("arguments[0].scrollIntoView();", element1)
+    sleep(1)
+
+    # Click todos distritos
+    driver.find_element("css selector", "#check186").click()
+    sleep(2)
+
+    # Click en totales barrios
+    driver.find_element("css selector", "#checkTotales650").click()
+    sleep(2)
+
+    # Click en todos periodos e invertir orden
+    driver.find_element("css selector", "#check435").click()
+    sleep(2)
+
+    # Click en tipo medida todo
+    driver.find_element("css selector", "#check360").click()
+    sleep(2)
+
+    # Scroll a botones
+    element2 = driver.find_element("css selector", "#filtroSeries > div > div.content > div > div > div")
+    driver.execute_script("arguments[0].scrollIntoView();", element2)
+    sleep(2)
+
+    # Click en nacionalidad todo
+    driver.find_element("css selector", "#check382").click()
+    sleep(2)
+
+    # Click en generar CSV
+    driver.find_element("css selector", "#botonCsv").click()
+    sleep(2)
+
+    driver.quit()
+
+
 def dbeaver_crear_db(database_name):
     """
     Crea una base de datos de PostgreSQL si aún no existe.
