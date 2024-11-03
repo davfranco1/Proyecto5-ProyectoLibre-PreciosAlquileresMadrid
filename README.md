@@ -148,10 +148,6 @@ El proyecto está construido de la siguiente manera:
 
 - Por otra parte, en [este link](datos/finales/mapa_madrid.html), encontrarás un mapa interactivo con toda la información que hemos extraído de las distintas fuentes. Debes descargarlo y abrirlo con tu navegador habitual (Safari, Chrome, Firefox...).
 
-- También lo encuentras aquí:
-
-<iframe src="datos/finales/mapa_madrid.html" width="600" height="400"></iframe>
-
 - Además, el notebook [3_QueriesVisualizaciónAnálisis](notebooks/3_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
 
 
