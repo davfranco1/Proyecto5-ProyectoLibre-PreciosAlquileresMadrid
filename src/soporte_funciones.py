@@ -549,6 +549,14 @@ def scraping_ine():
     print("Click en distritos")
     sleep(1)
 
+    # Click en renta media por hogar
+    driver.find_element("css selector", "#cri91634 > option:nth-child(2)").click()
+    sleep(1)
+    # Repetimos el click porque sólo con uno no hace click en el elemento
+    driver.find_element("css selector", "#cri91634 > option:nth-child(2)").click()
+    print("Click en renta media por hogar")
+    sleep(1)
+
     # Click en botón descarga 
     driver.find_element("css selector", "#btnDescarga > i").click()
     print("Click en descarga")
@@ -723,3 +731,50 @@ def dbeaver_commitmany(conexion, query, *values):
     cursor.close()
     conexion.close()
     return print("Commit realizado")
+
+
+def csvs_a_tuplas(rutas_archivos):
+    """
+    Lee múltiples archivos CSV y convierte sus datos en listas de tuplas.
+
+    Parámetros:
+    rutas_archivos (list): Lista de rutas de archivos CSV que se leerán.
+
+    Retorna:
+    list: Una lista de listas de tuplas, donde cada sublista corresponde a un archivo CSV.
+          Cada tupla representa una fila de datos sin el índice.
+
+    Ejemplo:
+    rutas_archivos = ["ruta/archivo1.csv", "ruta/archivo2.csv"]
+    listas_tuplas = csvs_a_tuplas(rutas_archivos)
+    # listas_tuplas será una lista que contiene una lista de tuplas para cada archivo.
+
+    """
+    listas_tuplas = []
+    for ruta in rutas_archivos:
+        df = pd.read_csv(ruta, index_col=0)
+        tuplas_df = list(df.itertuples(index=False, name=None))
+        listas_tuplas.append(tuplas_df)
+    return listas_tuplas
+
+
+def identificar_outliers(df, columna):
+    """
+    Identifica outliers en una columna de un DataFrame utilizando el método IQR.
+    
+    Parámetros:
+    df (DataFrame): El DataFrame que contiene la columna a evaluar.
+    columna (str): El nombre de la columna a evaluar.
+
+    Retorna:
+    DataFrame: Un DataFrame que contiene solo los outliers.
+    """
+    Q1 = df[columna].quantile(0.25)
+    Q3 = df[columna].quantile(0.75)
+    IQR = Q3 - Q1
+
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+
+    outliers = df[(df[columna] < lower_bound) | (df[columna] > upper_bound)]
+    return outliers
