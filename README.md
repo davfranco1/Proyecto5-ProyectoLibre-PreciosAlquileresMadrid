@@ -146,7 +146,9 @@ El proyecto está construido de la siguiente manera:
 
 - Te invito a descargar el [PDF Resultados](Resumen.pdf), que resume de manera gráfica el análisis preparado.
 
-- Además, el notebook [3_QueriesVisualizaciónAnálisis](https://github.com/davfranco1/Proyecto5-ProyectoLibre-PreciosAlquileresMadrid/blob/main/notebooks/3_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
+- Por otra parte, en [este link](datos/finales/mapa_madrid.html), encontrarás un mapa interactivo con toda la información que hemos extraído de las distintas fuentes.
+
+- Además, el notebook [3_QueriesVisualizaciónAnálisis](notebooks/3_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
 
 
 ## Autor

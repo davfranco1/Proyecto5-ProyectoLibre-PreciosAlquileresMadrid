@@ -778,3 +778,25 @@ def identificar_outliers(df, columna):
 
     outliers = df[(df[columna] < lower_bound) | (df[columna] > upper_bound)]
     return outliers
+
+
+def estilos_mapa(elemento):
+    """
+    Función para definir los estilos de los elementos en un mapa de Folium.
+
+    Parámetros:
+    elemento (dict): Diccionario con la información del elemento a estilizar.
+
+    Retorna:
+    dict: Diccionario con los estilos aplicados al elemento.
+    """
+    return {
+        'fillColor': 'white',  # Relleno
+        'color': 'red',      # Borde
+        'weight': 2,
+        'fillOpacity': 0.6,
+        'icon': 'circle',
+        'markerColor': 'red', # Marcador
+        'prefix': 'fa',
+        'iconColor': 'yellow'
+    }
