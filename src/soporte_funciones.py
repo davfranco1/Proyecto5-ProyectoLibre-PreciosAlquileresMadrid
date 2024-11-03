@@ -5,6 +5,7 @@ from tqdm import tqdm
 # Librerías para tratamiento de datos
 
 import pandas as pd
+import geopandas as gpd
 import numpy as np
 import re
 
@@ -722,4 +723,3 @@ def dbeaver_commitmany(conexion, query, *values):
     cursor.close()
     conexion.close()
     return print("Commit realizado")
-

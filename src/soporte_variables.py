@@ -4,7 +4,7 @@ query_creacion_distritos = '''
     create table if not exists distritos(
         id_distrito INT primary key,
         nombre VARCHAR(100),
-        geometry GEOMETRY
+        geometry GEOMETRY(MultiPolygon, 4326)
         );'''
 
 query_creacion_airbnb= '''
@@ -16,7 +16,7 @@ query_creacion_airbnb= '''
             on delete cascade,
         precio INT,
         descripcion VARCHAR,
-        geometry GEOMETRY
+        geometry GEOMETRY(Point, 4326)
         );'''
 
 query_creacion_idealista='''
@@ -34,7 +34,7 @@ query_creacion_idealista='''
         banios INT,
         direccion VARCHAR,
         descripcion VARCHAR,
-        geometry GEOMETRY    
+        geometry GEOMETRY(Point, 4326)    
     );'''
 
 query_creacion_redpiso='''
@@ -76,17 +76,17 @@ query_creacion_poblacion='''
 
 query_inser_distritos = '''
     INSERT INTO distritos (id_distrito, nombre, geometry) 
-    values (%s, %s, %s);
+    values (%s, %s, ST_GeomFromText(%s, 4326));
 '''
 
 query_inser_airbnb = '''
     INSERT INTO airbnb (id_distrito, precio, descripcion, geometry) 
-    values (%s, %s, %s, %s);
+    values (%s, %s, %s, ST_GeomFromText(%s, 4326));
 '''
 
 query_inser_idealista = '''
     INSERT INTO idealista (id_distrito, precio, tipo, planta, tamanio, habitaciones, banios, direccion, descripcion, geometry)
-    values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+    values (%s, %s, %s, %s, %s, %s, %s, %s, %s, ST_GeomFromText(%s, 4326));
 '''
 
 query_inser_redpiso = '''
