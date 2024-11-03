@@ -122,7 +122,7 @@ El proyecto está construido de la siguiente manera:
 
 ## Estructura de la base de datos
 
-<img src="images/DiagramaER.png" width="400">
+<img src="images/DiagramaER.png" width="300">
 
 - Este gráfico muestra el diseño de una base de datos relacional en forma de estrella con seis tablas: en el centro, "distritos", rodeada por:
    - Tabla de alojamientos turísticos: "airbnb".
@@ -147,6 +147,8 @@ El proyecto está construido de la siguiente manera:
 - Te invito a descargar el [PDF Resultados](Resumen.pdf), que resume de manera gráfica el análisis preparado.
 
 - Por otra parte, en [este link](datos/finales/mapa_madrid.html), encontrarás un mapa interactivo con toda la información que hemos extraído de las distintas fuentes. Debes descargarlo y abrirlo con tu navegador habitual (Safari, Chrome, Firefox...).
+
+<img src="images/mapa.png" width="300">
 
 - Además, el notebook [3_QueriesVisualizaciónAnálisis](notebooks/3_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
 
