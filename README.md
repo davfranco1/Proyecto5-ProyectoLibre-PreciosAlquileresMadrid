@@ -142,11 +142,15 @@ El proyecto está construido de la siguiente manera:
 - Un diseño es eficiente y bien estructurado cuando es escalable y facilita la gestión y consulta de los datos almacenados.
 
 
-## Conclusiones y Próximos Pasos
+## Conclusiones
 
 - Te invito a descargar el [PDF Resultados](Resumen.pdf), que resume de manera gráfica el análisis preparado.
 
-- Por otra parte, en [este link](datos/finales/mapa_madrid.html), encontrarás un mapa interactivo con toda la información que hemos extraído de las distintas fuentes.
+- Por otra parte, en [este link](datos/finales/mapa_madrid.html), encontrarás un mapa interactivo con toda la información que hemos extraído de las distintas fuentes. Debes descargarlo y abrirlo con tu navegador habitual (Safari, Chrome, Firefox...).
+
+- También lo encuentras aquí:
+
+<iframe src="datos/finales/mapa_madrid.html" width="600" height="400"></iframe>
 
 - Además, el notebook [3_QueriesVisualizaciónAnálisis](notebooks/3_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
 
