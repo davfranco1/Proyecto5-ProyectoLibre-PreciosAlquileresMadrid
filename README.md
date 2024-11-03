@@ -59,10 +59,12 @@ El proyecto está construido de la siguiente manera:
 - [Time](https://docs.python.org/3/library/time.html)
 - [tqdm](https://numpy.org/doc/)
 
-*Librerías para graficar*
+*Librerías para graficar y mapas*
 - [Plotly](https://plotly.com/python/)
 - [Seaborn](https://seaborn.pydata.org)
 - [Matplotlib](https://matplotlib.org/stable/index.html)
+- [Folium](https://python-visualization.github.io/folium/latest/)
+- [Mapbox](https://pypi.org/project/mapbox/)
 
 *Librería para gestionar tokens y contraseñas*
 - [DotEnv](https://pypi.org/project/python-dotenv/)
