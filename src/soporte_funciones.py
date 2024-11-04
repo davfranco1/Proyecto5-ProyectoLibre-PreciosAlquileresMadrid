@@ -57,6 +57,7 @@ warnings.filterwarnings("ignore") # Ignora TODOS los avisos
 dbeaver_pw = os.getenv("dbeaver_pw")
 dbeaver_user = os.getenv("dbeaver_user")
 rapiapi_key = os.getenv("rapiapi_key")
+ruta_descarga = os.getenv("ruta_descarga")
 
 
 def consulta_airbnbs(destino, checkin, checkout, paginas):
@@ -429,7 +430,7 @@ def scraping_ayuntamiento():
     chrome_options = webdriver.ChromeOptions()
 
     prefs = {
-        "download.default_directory": "/Users/davidfranco/Library/CloudStorage/OneDrive-Personal/Hackio/Jupyter/Proyecto5-ProyectoLibre-PreciosAlquileresMadrid/datos/origen",  # ruta de descarga
+        "download.default_directory": ruta_descarga,  # ruta de descarga
         "download.prompt_for_download": False,   # desactiva el diálogo que Chrome normalmente muestra para pedir confirmación del usuario antes de descargar un archivo
         "directory_upgrade": True,    # hace que Chrome actualice el directorio de descarga predeterminado a la nueva ubicación especificada por download.default_directory si esta ha cambiado.
     }
@@ -506,7 +507,7 @@ def scraping_ine():
     chrome_options = webdriver.ChromeOptions()
 
     prefs = {
-        "download.default_directory": "/Users/davidfranco/Library/CloudStorage/OneDrive-Personal/Hackio/Jupyter/Proyecto5-ProyectoLibre-PreciosAlquileresMadrid/datos/origen", #ruta de descarga
+        "download.default_directory": ruta_descarga, #ruta de descarga
         "download.prompt_for_download": False,   # desactiva el diálogo que Chrome normalmente muestra para pedir confirmación del usuario antes de descargar un archivo
         "directory_upgrade": True,    # hace que Chrome actualice el directorio de descarga predeterminado a la nueva ubicación especificada por download.default_directory si esta ha cambiado.
     }
