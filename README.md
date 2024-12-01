@@ -5,6 +5,8 @@
 
 ## Planteamiento del problema: **la vivienda de alquiler en la capital de España.**
 
+- Este proyecto forma parte de un máster de formación en Data Science e Inteligencia Artificial.
+
 - El mercado de alquiler de viviendas en Madrid ha experimentado un crecimiento sostenido en la última década, impulsado tanto por la demanda de los residentes locales como por el interés de extranjeros en vivir en la capital española. Esta demanda ha provocado un aumento considerable en los precios de alquiler, dificultando el acceso a la vivienda, especialmente para los jóvenes y aquellos con ingresos moderados. Además, la escasez de oferta y el dinamismo de Madrid como centro económico y cultural han contribuido a que el mercado de alquiler se mantenga altamente competitivo y sometido a la presión de varios factores económicos y sociales.
 
 - Uno de los factores que ha intensificado esta situación es el crecimiento de los alojamientos turísticos, especialmente aquellos que se gestionan a través de plataformas como Airbnb. Estos alojamientos, situados generalmente en áreas céntricas, han reducido el número de viviendas disponibles para alquiler residencial, impactando aún más en la oferta y elevando los precios. Esto ha llevado a algunos barrios a experimentar cambios en su tejido social y a que las autoridades busquen equilibrar la actividad turística con el acceso a la vivienda, implementando regulaciones para frenar la proliferación de estos alojamientos en zonas residenciales.
@@ -151,6 +153,11 @@ El proyecto está construido de la siguiente manera:
 <img src="images/mapa.png" width="300">
 
 - Además, el notebook [3_QueriesVisualizaciónAnálisis](notebooks/3_QueriesVisualizaciónAnálisis.ipynb), contiene explicaciones de los datos y las visualizaciones generadas durante el proyecto.
+
+
+## Agradecimientos
+
+- Quiero agradecer a mi profesora [Ana García](https://github.com/AnaAGG), por motivarme a desarrollar este proyecto e investigar sobre el tratamiento de datos geográficos. "Las Casas de David" son un icono más de la "Generacióndel24", y no olvidaré lo especial que ha sido este proyecto.
 
 
 ## Autor

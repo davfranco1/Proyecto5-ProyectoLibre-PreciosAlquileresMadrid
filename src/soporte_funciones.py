@@ -36,7 +36,7 @@ import psycopg2
 from psycopg2 import OperationalError, errorcodes, errors
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-# Librería para manejar archivos .env, para cargar tokens y claves
+# Librería para gestionar ficheros del sistema y archivos .env, para cargar tokens y claves
 import os
 import dotenv
 dotenv.load_dotenv()
@@ -197,8 +197,6 @@ def obtener_nombre_distrito(latitude, longitude):
     
     return distrito
 
-
-import requests
 
 def consulta_idealista(locationId, locationName, paginas=1):
     """
